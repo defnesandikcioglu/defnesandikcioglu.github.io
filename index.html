@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defne Sandikcioglu</title>
+    <link rel="icon" type="image/jpeg" href="dfn_smile_tab.png">
+    <link rel="apple-touch-icon" href="dfn_smile_tab.png">
+    <meta name="description" content="Defne Sandikcioglu is a PhD candidate in Economics at Rice University working on industrial organization, applied microeconomics, and market design.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .nav-links a.active {
+        font-weight: 500;              /* bold */
+        color: var(--text-primary);
+        }
+
+        a, button {
+            -webkit-tap-highlight-color: transparent;
+        }
+        :root {
+            --primary-bg: #fbfaf7;    /* warm off-white */
+            --secondary-bg: #f3f1ec;  /* warm light gray */
+            --text-primary: #1d1d1f;
+            --text-secondary: #86868b;
+            --accent: #0071e3;
+            --border: #d8d4cc;
+            --page-width: 1240px; 
+        }
+
+        body {
+            font-family: "Lato", Arial, sans-serif;
+            font-weight: 300; /* Light */
+            color: rgb(28, 28, 28);
+            background: var(--primary-bg);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        img, svg { max-width: 100%; height: auto; }
+        html { scroll-behavior: smooth; }
+        section { scroll-margin-top: 60px; }
+
+        /* Navigation */
+        nav {
+            background: rgba(251, 250, 247, 0.85);
+            backdrop-filter: saturate(180%) blur(20px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-container {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 0 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 44px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        /* --- Top-bar search mode --- */
+.nav-container {
+  position: relative;
+}
+
+/* container that will hold the search input in the nav */
+.nav-search {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  /* hidden by default */
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  overflow: hidden;
+transform: translateY(-2px);
+  transition: width 220ms ease, opacity 160ms ease, transform 220ms ease;
+}
+
+/* when nav is in search mode, expand */
+nav.search-open .nav-search {
+  width: min(520px, 70vw);
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* hide the normal links when searching (desktop) */
+nav.search-open .nav-links {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+/* show links normally otherwise */
+.nav-links {
+  transition: opacity 160ms ease;
+}
+
+.nav-search input {
+  width: 100%;
+  padding: 8px 12px;
+  font-size: 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  outline: none;
+  font-family: inherit;
+  background: rgba(255,255,255,0.85);
+}
+
+.nav-search input:focus {
+  border-color: var(--accent);
+}
+
+/* small close X button */
+.search-close {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 6px;
+}
+
+.search-close:hover {
+  color: var(--text-primary);
+}
+
+.search-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-secondary);
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s;
+}
+
+.search-button:hover {
+  color: var(--text-primary);
+}
+
+
+/* dropdown results under the nav (optional) */
+.search-dropdown {
+  position: absolute;
+  top: 44px; /* right under nav */
+  right: 22px;
+  width: min(520px, 92vw);
+  background: rgba(251,250,247,0.98);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  max-height: 320px;
+  overflow-y: auto;
+  padding: 8px;
+  display: none;
+  z-index: 3000;
+}
+
+nav.search-open .search-dropdown {
+  display: none;
+}
+nav.search-open .search-dropdown.has-results { display: block; }
+
+.search-result-item {
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.search-result-item:hover {
+  background: var(--secondary-bg);
+}
+
+.search-result-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.status-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 999px;
+    background: var(--secondary-bg);
+    border: 1px solid var(--border);
+    color: var(--text-primary);
+    margin-right: 8px;
+}
+
+.search-result-text {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+
+        .nav-logo {
+            font-size: 18px;
+            font-weight: 400;
+            color: var(--text-primary);
+            text-decoration: none;
+            letter-spacing: -0.01em;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 220ms ease;
+        }
+
+        nav.scrolled .nav-logo {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+        color: var(--text-primary);
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: 300; /* normal */
+        transition: font-weight 0.15s;
+        }
+
+        /* hover = sadece bold */
+        .nav-links a:hover {
+        font-weight: 400;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        /* Hero Section */
+        .hero {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 80px 22px 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 300;
+            letter-spacing: -0.005em;
+            margin-bottom: 16px;
+            line-height: 1.07;
+        }
+
+        .hero .subtitle {
+            font-size: 28px;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            line-height: 1.14;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 0 22px 80px;
+        }
+
+        .profile-content {
+            display: grid;
+            grid-template-columns: 380px 1fr;   /* 1fr 1fr yerine */
+            gap: 48px;                           /* aradaki mesafe, istediğin gibi ayarla */
+            align-items: start;
+        }
+
+        .profile-image {
+            width: 100%;
+            aspect-ratio: 1;
+            background: var(--secondary-bg);
+            border-radius: 50%;        /* yuvarlaklık burada */
+            overflow: hidden;          /* fotoğrafın köşelerini kırpar */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 120px;
+            color: var(--text-secondary);
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: -0.003em;
+        }
+
+        .profile-info {
+            padding-top: 18px;   /* try 8–16px the gap above the about text */
+        }
+
+        .profile-info p {
+            font-size: 19px;
+            line-height: 1.6;
+            max-width: 65ch;
+            color: var(--text-primary);
+            margin-bottom: 16px;
+        }
+
+        .profile-info .highlight {
+            background: var(--secondary-bg);
+            padding: 20px 24px;
+            border-radius: 12px;
+            margin: 24px 0;
+            font-size: 15px;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 16px;
+            margin-top: 28px;
+        }
+
+        .contact-links a {
+            color: var(--accent);
+            text-decoration: none; 
+        }
+
+        .contact-links a:hover {
+            opacity: 0.7;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .social-icons a {
+        width: 40px;
+        height: 40px;
+        border-radius: 999px;              /* perfect circle */
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+
+        color: var(--text-secondary);       /* monochrome */
+        border: 1px solid var(--border);    /* circle outline */
+        background: transparent;
+
+        transition: color 0.2s, border-color 0.2s, background 0.2s, transform 0.2s;
+        }
+
+        .social-icons a:hover {
+        color: var(--text-primary);
+        border-color: var(--text-primary);
+        background: var(--secondary-bg);    /* subtle fill on hover */
+        transform: translateY(-1px);
+        }
+
+        /* keep the svg a consistent size inside the circle */
+        .social-icons a svg {
+        width: 20px;
+        height: 20px;
+        }
+
+
+        .social-icons a.email {
+            color: var(--text-secondary);
+        }
+        .social-icons a.email:hover {
+            color: var(--text-primary);
+        }
+
+
+        /* Content Sections */
+        .content-section {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            padding: 50px 22px;
+            border-top: 1px solid var(--border);
+        }
+
+        .content-section h2 {
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 20px;
+            letter-spacing: -0.003em;
+        }
+
+        .content-card {
+            background: transparent;   /* removes the white box */
+            border: none;              /* removes the border */
+            border-radius: 0;          /* removes rounded corners */
+            padding: 0;                /* removes card padding */
+            backdrop-filter: none;     /* removes glass effect */
+            transition: none;          /* optional */
+        }
+
+        .content-card:hover {
+            box-shadow: none;
+            transform: none;
+        }
+
+        .content-grid {
+            display: grid;
+            gap: 40px;
+        }
+
+
+        .content-card h3 {
+            font-size: 20px;
+            font-weight: 400;
+            margin-bottom: 6px;
+        }
+
+        .content-card .meta {
+            font-size: 15px;
+            font-style: italic; 
+            font-weight: 400;
+            color: var(--text-primary);   /* gri yerine koyu */
+            letter-spacing: 0.01em;
+            margin-bottom: 8px;
+        }
+	.content-card .abstract {
+        font-size: 14px;      /* same as .meta */
+        color: var(--text-primary);
+        line-height: 1.6; 
+    }
+    .content-card .presented {
+            font-size: 13px;
+            font-weight: 400;
+            font-style: normal;
+            color: var(--text-secondary);
+            margin-top: -4px;
+            margin-bottom: 10px;
+        }
+        .content-card p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-primary);
+        }
+
+        .content-card a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .content-card > a,
+        .content-card .abstract + a {
+            font-size: 15px;
+            margin-top: 12px;
+            display: inline-block;
+        }
+
+        .content-card .meta a {
+            display: inline;
+            margin-top: 0;
+            font-size: inherit;
+        }
+
+
+        .content-card a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--secondary-bg);
+            padding: 40px 22px;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: var(--page-width);
+            margin: 0 auto;
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .footer-content p {
+            margin-bottom: 8px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            /* tighten space around your name */
+            .hero {
+                padding: 30px 22px 20px;  /* top, left/right, bottom */
+                text-align: center;
+            }
+                        
+            .nav-container { gap: 12px; }
+            .nav-right { display: flex; align-items: center; gap: 12px;}
+
+            .hero h1 {
+                font-size: 30px;
+                margin-bottom: 6px;
+                line-height: 1.05;
+            } 
+
+            .content-card h3 {
+                font-size: 17px;
+                line-height: 1.35;
+            }
+            .content-section {
+                border-top: none;
+                position: relative;
+            }
+
+            .content-section::before {
+                content: "";
+                display: block;
+                border-top: 1px solid var(--border);
+                width: 100vw;
+                position: relative;
+                left: 50%;
+                transform: translateX(-50%);
+                margin-bottom: 50px;
+            }
+
+
+            .profile-info { order: 2; }
+
+            .profile-info p {
+                font-size: 18px;   /* try 16–18px */
+                line-height: 1.55;
+            }
+
+            .profile-image {
+                order: 1;
+                width: 80%;
+                max-width: 420px;
+                margin: 0 auto;
+            } 
+
+            .nav-container {
+                justify-content: space-between;
+                position: relative;
+            }
+
+            .nav-logo { display: none; }
+            
+            .nav-right {
+                margin-left: auto;
+            }
+
+            .mobile-menu-toggle { display: block; }
+
+            .nav-links {
+                display: flex;              /* hide links in the top bar */
+                position: absolute;
+                top: 44px;                  /* under the nav bar */
+                left: 12px;                 /* under the hamburger */
+                flex-direction: column;
+                gap: 0;
+                background: rgba(251,250,247,.95);
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                padding: 10px;
+                z-index: 1500;
+                opacity: 0;
+                transform: translateY(-8px) scale(0.98);
+                pointer-events: none;
+                visibility: hidden;
+
+                transition: opacity 180ms ease, transform 180ms ease, visibility 0s linear 180ms;
+                transform-origin: top left;
+            }
+
+            .nav-links.active { 
+                opacity: 1;
+                transform: translateY(0) scale(1);
+                pointer-events: auto;
+                visibility: visible;
+
+                transition: opacity 180ms ease, transform 180ms ease, visibility 0s; 
+            }
+            
+            .search-button {
+                position: static; 
+            }
+
+            .search-button {
+                font-size: 18px;
+            }
+
+            .hero .subtitle {
+                font-size: 21px;
+            }
+
+            .profile-content {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            nav.search-open .nav-links {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  nav.search-open .nav-search {
+    width: min(92vw, 520px);
+  }
+  .search-dropdown {
+    right: 12px;
+  }
+            .content-section {
+                padding: 0 22px 60px;  /* no top padding; divider provides the top spacing */
+            }
+
+            .content-section h2 {
+                font-size: 28px;
+            }
+
+            .profile-section {
+                padding: 0 22px 60px;
+        }
+    }
+
+
+        /* Button */
+        .btn {
+            display: inline-block;
+            padding: 12px 22px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 980px;
+            font-size: 17px;
+            transition: all 0.2s;
+            margin-top: 16px;
+        }
+
+        .btn:hover {
+            background: #0077ed;
+            transform: scale(1.02);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+  <div class="nav-container">
+    <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+
+    <a href="#top" class="nav-logo"> Defne Sandikcioglu </a>
+
+    <div class="nav-right">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#top">Home</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#teaching">Teaching</a></li>
+      </ul>
+
+      <!-- Search input in top bar -->
+      <div class="nav-search" id="navSearch">
+        <input type="text" id="searchInput" placeholder="Search..." oninput="performSearch()" />
+        <button class="search-close" onclick="closeSearch()" aria-label="Close search">✕</button>
+      </div>
+
+      <button class="search-button" onclick="openSearch()" aria-label="Search">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M9 17A8 8 0 1 0 9 1a8 8 0 0 0 0 16zM19 19l-4.35-4.35"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- dropdown results (must be inside nav-container) -->
+    <div class="search-dropdown" id="searchResults"></div>
+  </div>
+</nav>
+
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <h1>Defne Sandikcioglu</h1>
+    </section>
+
+    <!-- Profile Section -->
+    <section class="profile-section">
+        <div class="profile-content">
+            <div class="profile-image">
+                  <img src="dfn_smile_edited.jpg" alt="Defne Sandikcioglu">
+            </div>
+           <div class="profile-info"> 
+                <p>
+                    I am a fifth-year PhD candidate in Economics at Rice University. My research is in industrial organization, applied microeconomics, and market design, using structural methods to study strategic behavior in online marketplaces.
+                    </p>
+                    <p>
+                    My job market paper studies how sellers choose between auctions and posted prices,
+                    and how they learn about demand across repeated listings.
+                </p>
+                <p>
+                    In summer 2026, I worked as an Economist Intern on Amazon's FBA Science Team, focusing on demand estimation and mechanism design to allocate scarce fulfillment-center capacity.
+                </p>
+                 <p>
+                   My resume is available <a href="https://drive.google.com/file/d/1owq5MOOhc4WBAlgc4LrSYnI7lFpdv3gf/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">here</a>, and  my CV is available <a href="https://drive.google.com/file/d/1l5MSOo6D-UZKJ-E3k4ipRdWEENSqZtX-/view?usp=sharing" target="_blank" rel="noopener noreferrer" style="color: var(--accent);">here</a>. 
+                    My institutional email is <a href="mailto:ds110@rice.edu" style="color: var(--accent);">ds110@rice.edu</a>.
+                </p>
+                    <p>
+                   <strong> I am on the 2026–2027 job market and available for interviews.</strong>
+                </p>
+                 <div class="social-icons">
+                    <a class="email" href="mailto:ds110@rice.edu" title="Email" aria-label="Email">
+                        <!-- Envelope icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M4 6h16v12H4V6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                            <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <a class="linkedin" href="https://www.linkedin.com/in/defnesandikcioglu" target="_blank" rel="noopener noreferrer" title="LinkedIn" aria-label="LinkedIn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                        </svg>
+                    </a> 
+            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="content-section" id="research">
+        <h2>Research</h2>
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Auctions vs. Posted Prices: When Do Sellers Switch Formats?</h3>
+                <p class="meta">Job Market Paper <a href="https://drive.google.com/file/d/1kOk4Y3DWEHLY-l68gdkgAMYcV9l5xXj2/view?usp=drive_link" target="_blank" rel="noopener noreferrer">[Draft]</a> </p>
+                <p class="abstract">
+                    Sellers often do not know the demand for their good, and the selling mechanism itself
+can generate that information: an auction reveals demand but risks no sale and adds
+delay, while posting a price is immediate and certain but ends learning. This paper studies this
+trade-off on a wholesale used-car platform where sellers auction the same car
+repeatedly and may irreversibly switch to a posted price. I develop and estimate a
+dynamic structural model in which risk-averse sellers learn about demand from auction
+outcomes and weigh further experimentation against delay costs, using maximum
+likelihood computed with an EM algorithm and a machine-learning first stage. Auctions
+are precise experiments: a single auction resolves most of a seller's uncertainty,
+learning delivers about four-fifths of the value of full information, and bad news
+triggers prompt switching. Counterfactuals show the two formats are complements;
+mandating a switch after two auctions shortens time-on-market at no cost to sellers;
+and a reserve-recommendation tool and a standing guaranteed-purchase offer each raise
+seller welfare, the latter adopted precisely after sellers learn that demand is weak.
+                </p>
+            </div>
+
+            <div class="content-card">
+                <h3>Simultaneous Auctions with Common and Private Value Bidders: Evidence from Online Car Auctions</h3>
+                <p class="meta">Revise and Resubmit at The RAND Journal of Economics | 2026 <a href="https://drive.google.com/file/d/1mICUBk_rAMyCqf5UQXEnvZiMc58h1CUV/view?usp=sharing" target="_blank" rel="noopener noreferrer">[Draft]</a> </p>
+                <p class="presented"> Presented at NASMES 2026, SEA 2026 (scheduled) </p>
+                <p class="abstract">
+                    This paper develops a novel structural model of second-price auctions with two types of
+bidders, motivated by data from an online used-car auction platform. Dealers, who have incentives to
+resell vehicles, have common value for the object and participate in multiple simultaneous auctions,
+while individual buyers have independent private values for the auctioned objects and submit only
+one bid. The model explicitly captures the interaction between common value and private value
+bidders and incorporates complementarities arising from multiple wins by dealers. I establish the
+identification of the bidders' signal distributions and complementarities. The model is estimated
+parametrically in three steps, and counterfactual analyses examine how bundling auctions affect
+revenue and efficiency. The results show that bidders gain positive complementarities from winning
+multiple auctions with similar characteristics. The counterfactual analysis shows that even though
+bundled auctions increase the platform revenue, they result in non-negligible allocative inefficiency.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Teaching Section -->
+    <section class="content-section" id="teaching">
+        <h2>Teaching</h2>
+        <div class="content-grid">
+            <div class="content-card">
+                <h3>Rice University - Department of Economics</h3>
+                <p class="meta">Teaching Assistant | 2023-Present</p>
+                <p>
+                    <em>Undergraduate:</em> Game Theory, Managerial Economics, Health Economics
+                </p>
+            </div>
+
+            <div class="content-card">
+                <h3>Bogazici University - Department of Economics</h3>
+                <p class="meta">Teaching Assistant | 2020-2021</p>
+                <p>
+                    <em>Graduate:</em> Econometrics <br>
+                    <em>Undergraduate:</em> Microeconomics
+                </p>
+            </div>
+
+            <div class="content-card">
+                <h3>Bogazici University - Department of Social Policy</h3>
+                <p class="meta">Teaching Assistant | 2019-2020</p>
+                <p>
+                    <em>Graduate:</em> Basic Economics for Social Policy
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Defne Sandikcioglu. All rights reserved.</p>
+            <p>Last updated: September 2026</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMobileMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+          function openSearch() {
+    document.querySelector('nav').classList.add('search-open');
+    const input = document.getElementById('searchInput');
+    input.focus();
+  }
+
+  function closeSearch() {
+  document.querySelector('nav').classList.remove('search-open');
+  document.getElementById('searchInput').value = '';
+  document.getElementById('searchResults').innerHTML = '';
+  document.getElementById('searchResults').classList.remove('has-results');
+  window.searchResults = [];
+  document.getElementById('navLinks').classList.remove('active');
+}
+
+
+  function performSearch() {
+  const query = document.getElementById('searchInput').value.toLowerCase().trim();
+  const resultsDiv = document.getElementById('searchResults');
+
+  if (query.length < 2) {
+    resultsDiv.innerHTML = '';
+    resultsDiv.classList.remove('has-results');
+    window.searchResults = [];
+    return;
+  }
+
+  const searchableElements = document.querySelectorAll('h1, h2, h3, p, .meta');
+  const results = [];
+
+  searchableElements.forEach(el => {
+    const text = el.textContent || '';
+    if (text.toLowerCase().includes(query)) {
+      const heading = el.closest('.content-card, .profile-info, section')?.querySelector('h1, h2, h3');
+      const title = heading ? heading.textContent : 'Page Content';
+
+      const index = text.toLowerCase().indexOf(query);
+      const start = Math.max(0, index - 40);
+      const end = Math.min(text.length, index + query.length + 40);
+      let snippet = text.substring(start, end);
+      if (start > 0) snippet = '...' + snippet;
+      if (end < text.length) snippet = snippet + '...';
+
+      results.push({ title, text: snippet, element: el });
+    }
+  });
+
+  window.searchResults = results;
+
+  if (!results.length) {
+    resultsDiv.innerHTML = `<div class="search-result-item"><div class="search-result-text">No results found</div></div>`;
+    resultsDiv.classList.add('has-results'); // still show dropdown to show "No results"
+    return;
+  }
+
+  resultsDiv.innerHTML = results.slice(0, 10).map((r, i) => `
+    <div class="search-result-item" onclick="scrollToResult(${i})">
+      <div class="search-result-title">${r.title}</div>
+      <div class="search-result-text">${r.text}</div>
+    </div>
+  `).join('');
+
+  resultsDiv.classList.add('has-results');
+}
+
+
+
+
+  function scrollToResult(i) {
+    const r = window.searchResults?.[i];
+    if (!r) return;
+    r.element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    closeSearch();
+  }
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeSearch();
+    }
+    // nice UX: Cmd/Ctrl+K opens search
+    if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      openSearch();
+    }
+  });;
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('navLinks').classList.remove('active');
+                }
+            });
+        });
+
+        document.addEventListener('click', (e) => {
+  const nav = document.querySelector('nav');
+  const search = document.getElementById('navSearch');
+  const dropdown = document.getElementById('searchResults');
+  const button = document.querySelector('.search-button');
+
+  if (!nav.classList.contains('search-open')) return;
+
+  const clickedInside = search.contains(e.target) || dropdown.contains(e.target) || button.contains(e.target);
+  if (!clickedInside) closeSearch();
+});
+
+
+        // Highlight current section in nav (desktop + scroll)
+        (function () {
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
+
+        function setActive(id) {
+        const normalized = (id === 'top') ? 'top' : id; // keep id
+        navLinks.forEach(a => {
+            const hrefId = a.getAttribute('href').slice(1); // "top", "research", ...
+            a.classList.toggle('active', hrefId === normalized);
+        });
+        }
+
+
+        // Click: make it active immediately (nice UX)
+        navLinks.forEach(a => {
+            a.addEventListener('click', () => {
+            const id = a.getAttribute('href').slice(1);
+            setActive(id);
+            });
+        });
+
+        /*
+        // Scroll: update active link based on what's in view
+        const observer = new IntersectionObserver(
+            (entries) => {
+            // pick the most visible intersecting section
+            const visible = entries
+                .filter(e => e.isIntersecting)
+                .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+            if (visible) setActive(visible.target.id);
+            },
+            {
+            root: null,
+            // adjust for your sticky nav height (44px) + some padding
+            rootMargin: "-60px 0px -55% 0px",
+            threshold: [0.2, 0.35, 0.5, 0.65, 0.8],
+            }
+        );
+
+        sections.forEach(sec => observer.observe(sec));
+*/
+        // Initial state
+        if (location.hash) setActive(location.hash.slice(1));
+        else setActive('top');
+        })();
+        // Show name in nav after scrolling past the hero
+        const navEl = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            navEl.classList.toggle('scrolled', window.scrollY > 260);
+        }, { passive: true });
+
+    </script>
+</body>
+</html>
